@@ -17,3 +17,10 @@
   width: 30%;
   padding: 20px;
 }
+
+
+@media only screen and (max-width: 960px) {
+  .container-login-body {
+    width: 90%;
+  }
+}

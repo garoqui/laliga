@@ -32,20 +32,37 @@
   flex-direction: column;
 }
 
-.container-user-detail-image-text div {
-  padding: 10px;
+.container-user-detail-image  div{
+  padding-top: 20px;
 }
+
+
 
 .container-user-detail-image-controls {
   display: flex;
+  justify-content: space-between;
 }
 
-.container-user-detail-image-controls button{
-    margin-left: 20px;
+.container-user-detail-image-controls button {
+  margin-left: 20px;
 }
 
 @media only screen and (max-width: 960px) {
   .container-user-detail-image {
-    width: 100%;
+    width: 80%;
+    flex-direction: column;
+    height: 90vh;
+    align-items: center;
   }
+
+  .container-user-detail-image img {
+    height: 30%;
+    width: 30%;
+  }
+
+  .container-user-detail-image-controls {
+    width:80%;
+  }
+
+ 
 }

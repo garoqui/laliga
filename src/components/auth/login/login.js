@@ -21,7 +21,7 @@ const Login = () => {
   useEffect(() => {
     setToken(state.token);
     checkIsLogued(state.token);
-  }, [state.token]);
+  }, [state.token,toastrStatus]);
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -34,8 +34,7 @@ const Login = () => {
     await setToken(state.token);
     if (!state.token.length) {
       openToastr()
-    }
-    
+    }    
   };
 
   const checkIsLogued = async (checkToken) => {
