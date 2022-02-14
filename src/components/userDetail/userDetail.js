@@ -66,13 +66,13 @@ const UserDetail = () => {
 
           <div class="container-user-detail-image-controls">
             <div onClick={() => goToUsers()}>
-              <ButtonCustom buttonText="Back" color="green"></ButtonCustom>
+              <ButtonCustom buttonText="Back" name="back" color="green"></ButtonCustom>
             </div>
             <div onClick={() => openModal("visible")}>
-              <ButtonCustom buttonText="Edit" color="orange"></ButtonCustom>
+              <ButtonCustom buttonText="Edit" color="orange" name="edit"></ButtonCustom>
             </div>
             <div onClick={() => deleteCurrentUser()}>
-              <ButtonCustom buttonText="Delete" color="red"></ButtonCustom>
+              <ButtonCustom buttonText="Delete" color="red" name="delete"></ButtonCustom>
             </div>
           </div>
         </div>

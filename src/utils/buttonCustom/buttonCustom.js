@@ -1,8 +1,8 @@
 //styles
 import "./buttonCustom.scss";
 
-const ButtonCustom = ({ buttonText, data, color, disabled }) => {
-  return <button className={color}>{buttonText}</button>;
+const ButtonCustom = ({ buttonText, data, color, name }) => {
+  return <button className={color} name={name}>{buttonText}</button>;
 };
 
 export default ButtonCustom;

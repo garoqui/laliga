@@ -34,11 +34,11 @@ describe("userDetail", () => {
   test("styles userDetail OK!", async() => {
     await comp();
 
-    const buttonBack = screen.getByText("Back")
+    const buttonBack = screen.getByRole('button',{name: /back/i})
     expect(buttonBack).toHaveClass("green")
-    const buttonEdit = screen.getByText("Edit")
+    const buttonEdit = screen.getByRole('button',{name: /edit/i})
     expect(buttonEdit).toHaveClass("orange")
-    const buttonDelete = screen.getByText("Delete")
+    const buttonDelete = screen.getByRole('button',{name: /delete/i})
     expect(buttonDelete).toHaveClass("red")
   });
 });

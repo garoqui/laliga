@@ -6,19 +6,21 @@ import { Provider } from "react-redux";
 import store from "../../store";
 import Users from "./users";
 
-describe('users list', ()=>{
-    const comp = () => {
-        render(
-          <Provider store={store}>
-            <BrowserRouter>
-              <Users></Users>
-            </BrowserRouter>
-          </Provider>
-        );
-      };
+describe("users list", () => {
+  const comp = () => {
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Users></Users>
+        </BrowserRouter>
+      </Provider>
+    );
+  };
 
-      test('users component render ok!', ()=>{
-          comp();
-          screen.getByText("Usuarios")
-      })
-})
+  test("users component render ok!", () => {
+    comp();
+    screen.getByText("Usuarios");
+    //   const containerUsers = screen.getByTestId("container-user")
+    //   console.log(containerUsers)
+  });
+});

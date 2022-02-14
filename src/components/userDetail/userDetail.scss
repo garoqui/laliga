@@ -62,6 +62,15 @@
 
   .container-user-detail-image-controls {
     width:80%;
+    flex-direction: column;
+  }
+
+  .container-user-detail-image-controls div {
+    width:100%;
+  }
+
+  button{
+    width : 100%
   }
 
  
