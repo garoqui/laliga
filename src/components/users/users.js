@@ -30,7 +30,7 @@ const Users = () => {
   return (
     <div className="container">
       <h1>Usuarios</h1>
-      <div className="container-user">
+      <div className="container-user" data-testid="container-user">
         {users.map((user, key) => (
           <div key={user.id}>
             <UserCard user={user}></UserCard>

@@ -1,0 +1,48 @@
+.container-toastr {
+  top: 0;
+  right: 0;
+  width: 20vw;
+
+  min-height: 100px;
+  position: absolute;
+  margin-right: 20px;
+  margin-top: 50px;
+  border-radius: 10px;
+  opacity: 0.8;
+  color: white;
+  overflow: hidden;
+  animation-duration: 1s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+}
+
+.container-toastr-header {
+  // background-color: rgba(0, 128, 0, 0.932);
+  padding: 10px;
+  font-weight: bolder;
+}
+.success {
+  background-color: green;
+}
+
+.error {
+  background-color: red;
+}
+
+.visible {
+    display: block;
+}
+
+.novisible{
+    display: none;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0.8;
+  }
+
+  to {
+    opacity: 0.7;
+  }
+}

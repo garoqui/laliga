@@ -1,11 +1,15 @@
-import './scss/app.scss';
-import Users from './components/users/users'
+import "./scss/app.scss";
+import { Provider } from "react-redux";
+import RouterLiga from "./router";
+import store from "./store";
 
 function App() {
   return (
-    <div className="App"> 
-      <Users></Users>
-    </div>
+    <Provider store={store}>
+      <div className="container">
+        <RouterLiga></RouterLiga>
+      </div>
+    </Provider>
   );
 }
 

@@ -1,0 +1,50 @@
+
+
+.novisible{
+    display: none;
+}
+
+.visible{
+    display :block
+}
+
+.container-modalcustom {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  align-items: center;
+}
+
+.container-modalcustom-center {
+  background-color: #fff;
+  width: 300px;
+  padding: 10px 20px;
+  margin: 20% auto;
+  position: relative;
+  border-radius: 10px;
+}
+
+.container-modalcustom-header {
+  padding: 10px;
+}
+
+.container-modalcustom-body {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-modalcustom-footer {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.errortext{
+    color:red;
+    margin-bottom: 10px;
+}

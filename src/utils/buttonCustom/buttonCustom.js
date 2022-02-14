@@ -1,14 +1,8 @@
-import {react,useState,useEffect} from 'react'
-
 //styles
-import './buttonCustom.scss'
+import "./buttonCustom.scss";
 
+const ButtonCustom = ({ buttonText, data, color, disabled }) => {
+  return <button className={color}>{buttonText}</button>;
+};
 
-
-const ButtonCustom = ({buttonText})=>{
-    return(
-        <button>{buttonText}</button>
-    )
-}
-
-export default ButtonCustom
+export default ButtonCustom;

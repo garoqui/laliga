@@ -1,8 +1,13 @@
 .container-user {
-    display: flex;
-    margin: 20px;
-    padding: 20px;
-    justify-content: space-between;
-
-
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  padding: 20px;
+  justify-content: space-between;
 }
+
+@media only screen and (max-width: 960px) {
+    .container-user {
+      flex-direction: column;
+    }
+  }
