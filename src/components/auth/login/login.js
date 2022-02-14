@@ -31,7 +31,7 @@ const Login = () => {
 
   const onSubmit = async () => {
     await dispatch(createSesion(user));
-    setToken(state.token);
+    await setToken(state.token);
     if (!state.token.length) {
       openToastr()
     }

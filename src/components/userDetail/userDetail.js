@@ -30,15 +30,12 @@ const UserDetail = () => {
   }, [id]);
 
   const getUser = async () => {
-    console.log(id);
     const resu = await getUserDetail(id);
-    console.log(resu);
     return resu.data;
   };
 
   const setUser = (user) => {
     setUserInfo(user);
-    console.log(user);
   };
 
   const goToUsers = () => {

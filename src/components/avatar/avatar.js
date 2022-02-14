@@ -8,7 +8,6 @@ const Avatar = ({ avatar }) => {
 
   useEffect(() => {
     setAvatarImg(avatar);
-    console.log(avatar);
   }, [avatar]);
 
   return (

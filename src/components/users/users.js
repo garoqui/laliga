@@ -14,16 +14,13 @@ const Users = () => {
 
   useEffect(async () => {
     await fecthUsers();
-    console.log(users);
   }, []);
 
   const fecthUsers = async () => {
     try {
       const resu = await getUsers();
-      console.log(resu)
       await setUsers(resu.data);
     } catch (err) {
-      console.log(err);
     }
   };
 

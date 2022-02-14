@@ -3,7 +3,6 @@ import { STARTSESION, STARTSESION_ASYNC, CLOSESESION } from "../types";
 const initialState = [];
 
 export default function sesionReducer(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case STARTSESION_ASYNC:
       return [action.user.token];

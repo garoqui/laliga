@@ -12,7 +12,6 @@ const RouterLiga = () => {
   const state = useSelector((state) => state);
 
   useEffect(() => {
-    console.log("cambio");
   }, [state.token]);
 
   return (
