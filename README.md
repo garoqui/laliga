@@ -1,3 +1,13 @@
+# How to Login
+
+use the user eve.holt@reqres.in
+use the password 123
+
+# Services
+
+The app use Redux Saga, the services login, getUsers and getUser by id is calling from sagas
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
