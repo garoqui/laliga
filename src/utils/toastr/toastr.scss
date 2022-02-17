@@ -2,7 +2,7 @@
   top: 0;
   right: 0;
   width: 20vw;
-
+  z-index:100000;
   min-height: 100px;
   position: absolute;
   margin-right: 20px;
@@ -39,11 +39,11 @@
 
 @keyframes slidein {
   from {
-    opacity: 0.8;
+    opacity: 1;
   }
 
   to {
-    opacity: 0.7;
+    opacity: 0.9  ;
   }
 }
 

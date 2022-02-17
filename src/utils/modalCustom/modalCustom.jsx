@@ -1,29 +1,33 @@
 import { useState, useEffect } from "react";
 import ButtonCustom from "../buttonCustom/buttonCustom";
+import { useDispatch, useSelector } from "react-redux";
 
 //styles
 import "./modalCustom.scss";
 
 //services
 import { isEmpty } from "../../services/validations/form.validations";
-import { editUser } from "../../services/users/users.service";
-
+//import { editUser } from "../../services/users/users.service";
+import { editUser } from "../../redux/actions/sesion.actions";
 
 const ModalCustom = ({ title, data, display, openModal, openToastr }) => {
   const [errores, setErrores] = useState({});
-  const [user, setUser] = useState(data);
+  const [user, setUser] = useState({});
   const [isValidate, setIsValidate] = useState(1);
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!user.hasOwnProperty("email")) {
+    if (!user.email) {
       setUser(data);
     }
+
     if (Object.keys(errores).length > 0) {
       setIsValidate(0);
     } else {
       setIsValidate(1);
     }
-  }, [data, errores, isValidate, user]);
+  }, [data, errores, isValidate, user, dispatch]);
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -44,11 +48,12 @@ const ModalCustom = ({ title, data, display, openModal, openToastr }) => {
   };
 
   const editCurrentUser = async () => {
-    const resu = await editUser(user).then((res) => res);
-    if(resu.email){
-      openToastr("visible")
+    dispatch(editUser(user));
+    setErrores({});
+    if (state.editUser) {
+      openToastr("visible");
       openModal("novisible");
-    }    
+    }
   };
 
   return (
@@ -117,12 +122,12 @@ const ModalCustom = ({ title, data, display, openModal, openToastr }) => {
             <div onClick={() => editCurrentUser()}>
               <ButtonCustom color="green" buttonText="Aceptar"></ButtonCustom>
             </div>
-          ) : false}
+          ) : (
+            false
+          )}
           <div onClick={() => closeModal()}>
             <ButtonCustom color="red" buttonText="Cancelar"></ButtonCustom>
           </div>
-
-        
         </div>
       </div>
     </div>

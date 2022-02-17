@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 //components
 import ModalCustom from "../../utils/modalCustom/modalCustom";
 import Toastr from "../../utils/toastr/toastr";
+import { useDispatch, useSelector } from "react-redux";
 
 //styles
 import "./userDetail.scss";
@@ -16,6 +17,7 @@ import ButtonCustom from "../../utils/buttonCustom/buttonCustom";
 const UserDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [userInfo, setUserInfo] = useState({first_name: "", last_name:"", email:""});
   const [modalVisible, setModalVisible] = useState("novisible");

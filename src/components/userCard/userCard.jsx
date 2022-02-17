@@ -4,7 +4,7 @@ import { React, useState, useEffect } from "react";
 import "./userCard.scss";
 
 //components
-import Avatar from "../../components/avatar/avatar";
+import Avatar from "../avatar/avatar";
 import ButtonCustom from "../../utils/buttonCustom/buttonCustom";
 import { useNavigate } from "react-router-dom";
 

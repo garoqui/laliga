@@ -40,18 +40,6 @@ const Login = () => {
   const onSubmit = async () => {
     await dispatch(createSesion(user));
     await setToken(sessionStorage.getItem("token"));
-
-
-
-    // if (!sessionStorage.getItem("token")) {
-    //   console.log("no logued");
-    //   setMessageCore({
-    //     type: "error",
-    //     text: "user incorrect",
-    //     title: "Error",
-    //     display: "visible",
-    //   });
-    // }
   };
 
   const checkIsLogued = async (checkToken) => {
