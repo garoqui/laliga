@@ -7,7 +7,7 @@ import "./users.scss";
 import { getUsers } from "../../services/users/users.service";
 
 //components
-import UserCard from "../userCard/userCard";
+import UserCard from "../../components/userCard/userCard";
 
 const Users = () => {
   const [users, setUsers] = useState([]);

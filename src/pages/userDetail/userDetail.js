@@ -17,7 +17,7 @@ const UserDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({first_name: "", last_name:"", email:""});
   const [modalVisible, setModalVisible] = useState("novisible");
   const [toastrVisible, setToastrVisible] = useState("novisible")
 
@@ -43,7 +43,7 @@ const UserDetail = () => {
   };
 
   const deleteCurrentUser = async () => {
-    const resu = await deleteUser(1).then((res) => res);
+    await deleteUser(id).then((res) => res);
   };
 
   const openModal = (status) => {
@@ -55,16 +55,16 @@ const UserDetail = () => {
   };
 
   return (
-    <div class="container-user-detail">
+    <div className="container-user-detail">
       <h1>Información del Usuario</h1>
-      <div class="container-user-detail-image">
+      <div className="container-user-detail-image">
         <img src={userInfo.avatar} alt={userInfo.first_name} />
-        <div class="container-user-detail-image-text">
+        <div className="container-user-detail-image-text">
           <div>Name : {userInfo.first_name}</div>
           <div>Lastname : {userInfo.last_name}</div>
           <div>email : {userInfo.email}</div>
 
-          <div class="container-user-detail-image-controls">
+          <div className="container-user-detail-image-controls">
             <div onClick={() => goToUsers()}>
               <ButtonCustom buttonText="Back" name="back" color="green"></ButtonCustom>
             </div>

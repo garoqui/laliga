@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Login from "./login";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "../../../store";
+import store from "../../redux/store";
 
 describe("<Login/>", () => {
   test("renders content", () => {

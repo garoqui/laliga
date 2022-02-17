@@ -53,12 +53,12 @@ const ModalCustom = ({ title, data, display, openModal, openToastr }) => {
 
   return (
     <div className={`container-modalcustom ${display}`}>
-      <div class="container-modalcustom-center">
-        <div class="container-modalcustom-header">
+      <div className="container-modalcustom-center">
+        <div className="container-modalcustom-header">
           <h2>{title}</h2>
         </div>
 
-        <div class="container-modalcustom-body">
+        <div className="container-modalcustom-body">
           <div>
             <label htmlFor="email">Email</label>
           </div>
@@ -74,7 +74,7 @@ const ModalCustom = ({ title, data, display, openModal, openToastr }) => {
           </div>
 
           {errores.email && (
-            <div class="errortext">The field email is required</div>
+            <div className="errortext">The field email is required</div>
           )}
 
           <div>
@@ -91,7 +91,7 @@ const ModalCustom = ({ title, data, display, openModal, openToastr }) => {
             ></input>
           </div>
           {errores.first_name && (
-            <div class="errortext">The field First Name is required</div>
+            <div className="errortext">The field First Name is required</div>
           )}
 
           <div>
@@ -108,11 +108,11 @@ const ModalCustom = ({ title, data, display, openModal, openToastr }) => {
             ></input>
           </div>
           {errores.last_name && (
-            <div class="errortext">The field last_name is required</div>
+            <div className="errortext">The field last_name is required</div>
           )}
         </div>
 
-        <div class="container-modalcustom-footer">
+        <div className="container-modalcustom-footer">
           {isValidate ? (
             <div onClick={() => editCurrentUser()}>
               <ButtonCustom color="green" buttonText="Aceptar"></ButtonCustom>

@@ -24,7 +24,7 @@ const UserCard = ({ user }) => {
   return (
     <div className="container-usercard">
       <Avatar avatar={userInfo.avatar}></Avatar>
-      <div class="container-usercard-text">{` ${userInfo.first_name} , ${userInfo.last_name}`}</div>
+      <div className="container-usercard-text">{` ${userInfo.first_name} , ${userInfo.last_name}`}</div>
       <div onClick={()=>goToDetail()}><ButtonCustom buttonText="Ver detalle" data={userInfo}></ButtonCustom></div>
     </div>
   );

@@ -11,7 +11,7 @@ const Avatar = ({ avatar }) => {
   }, [avatar]);
 
   return (
-    <div class="container-avatar">
+    <div className="container-avatar">
       <img src={avatarImg} />
     </div>
   );

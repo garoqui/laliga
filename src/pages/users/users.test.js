@@ -3,7 +3,7 @@ import "@testing-library/jest-dom/extend-expect";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "../../store";
+import store from "../../redux/store";
 import Users from "./users";
 
 describe("users list", () => {
@@ -20,7 +20,5 @@ describe("users list", () => {
   test("users component render ok!", () => {
     comp();
     screen.getByText("Usuarios");
-    //   const containerUsers = screen.getByTestId("container-user")
-    //   console.log(containerUsers)
   });
 });

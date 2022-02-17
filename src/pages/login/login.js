@@ -1,53 +1,69 @@
 import { useState, useEffect } from "react";
-import ButtonCustom from "../../../utils/buttonCustom/buttonCustom";
+import ButtonCustom from "../../utils/buttonCustom/buttonCustom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Toastr from "../../../utils/toastr/toastr";
+import Toastr from "../../utils/toastr/toastr";
 
 //services
-import { closeSesion, createSesion } from "../../../actions/sesion.actions";
+import { closeSesion, createSesion } from "../../redux/actions/sesion.actions";
 
 //styles
 import "./login.scss";
 
+//hooks
+import { useMessage } from "../../hooks/useMessage";
+
 const Login = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({email:"", password:""});
   const [token, setToken] = useState("");
-  const [toastrStatus, setToastrStatus] = useState({type: "" , text: "", title :"", display: "novisible"})
   const state = useSelector((state) => state);
+  const [messageCore, setMessageCore] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // setting the message from custom hook
+  let { messageType, messageText, messageTitle, messageDisplay } =
+    useMessage(messageCore);
 
   useEffect(() => {
     setToken(state.token);
-    checkIsLogued(state.token);
-  }, [state.token,toastrStatus]);
+    checkIsLogued(sessionStorage.getItem("token"));
+  }, [
+    state.token,
+    messageCore,
+    token,
+  ]);
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const handleBlur = () => {};
-
   const onSubmit = async () => {
     await dispatch(createSesion(user));
-    await setToken(state.token);
-    if (!state.token.length) {
-      openToastr()
-    }    
+    await setToken(sessionStorage.getItem("token"));
+
+
+
+    // if (!sessionStorage.getItem("token")) {
+    //   console.log("no logued");
+    //   setMessageCore({
+    //     type: "error",
+    //     text: "user incorrect",
+    //     title: "Error",
+    //     display: "visible",
+    //   });
+    // }
   };
 
   const checkIsLogued = async (checkToken) => {
-    if (checkToken.length) {
+    if (checkToken) {
       navigate("/users");
     } else {
-      dispatch(closeSesion());      
+      dispatch(closeSesion());
+      sessionStorage.removeItem("token")
     }
   };
 
-  const openToastr = () => {
-    setToastrStatus({type: "error" , text: "user incorrect", title :"Error", display: "visible"});
-  };
+
 
   return (
     <div className="container-login">
@@ -60,7 +76,6 @@ const Login = () => {
           <input
             type="text"
             onChange={handleChange}
-            onBlur={handleBlur}
             value={user.email}
             name="email"
             id="email"
@@ -81,12 +96,17 @@ const Login = () => {
         </div>
 
         <div className="container-modalcustom-footer">
-          <div onClick={() => onSubmit()}>
+          <div onClick={onSubmit}>
             <ButtonCustom color="green" buttonText="Aceptar"></ButtonCustom>
           </div>
         </div>
       </div>
-      <Toastr type={toastrStatus.type} text={toastrStatus.text} title={toastrStatus.title} display={toastrStatus.display}></Toastr>
+      <Toastr
+        type={messageType}
+        text={messageText}
+        title={messageTitle}
+        display={messageDisplay}
+      ></Toastr>
     </div>
   );
 };

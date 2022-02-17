@@ -11,6 +11,6 @@ const sagaMiddleWare = createSagaMiddleware()
 const store = createStore(reducer,  composeWithDevTools(applyMiddleware(sagaMiddleWare)) );
 sagaMiddleWare.run(watchLogin)
 
-store.subscribe(() => console.log(store.getState()));
+
 
 export default store;

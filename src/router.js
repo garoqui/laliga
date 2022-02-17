@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux";
 
 //components
-import Login from "./components/auth/login/login";
-import Users from "./components/users/users";
-import UserDetail from "./components/userDetail/userDetail";
+import Login from "./pages/login/login";
+import Users from "./pages/users/users";
+import UserDetail from "./pages/userDetail/userDetail";
+import NavBar from "./components/navbar/navbar";  
+
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PrivateRoutes from "./components/privateRoutes/privateRoutes";
 import { useEffect } from "react";
@@ -16,6 +19,7 @@ const RouterLiga = () => {
 
   return (
     <Router>
+      <NavBar></NavBar>
       <Routes>
         <Route
           path="/"
