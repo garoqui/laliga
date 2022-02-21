@@ -5,6 +5,11 @@ const requestOptionsPut = {
     headers: { "Content-Type": "application/json" },
   };
 
+  const requestOptionsDelete = {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  };
+
 // get all of users from api
 export const getUsers = async () => {
   const resu = await fetch(URLUSERS)
@@ -29,13 +34,18 @@ export const getUserDetail = async (id) => {
 
 // delete user by id
 export const deleteUser = async (id) => {
-  const resu = await fetch(`${URLUSERS}/${id}`, { method: "DELETE" })
+  const temp = {
+    ...requestOptionsDelete,
+    // body: JSON.stringify(id),
+  };
+
+  const resu = await fetch(`${URLUSERS}/${id}`, temp)
     .then((users) => users)
     .catch((err) => console.log(err));
   if (!resu.ok) {
     throw Error(resu.status);
   }
-  return resu.json();
+  return resu.status;
 };
 
 //edit user by id

@@ -10,14 +10,16 @@ import { useDispatch, useSelector } from "react-redux";
 import "./userDetail.scss";
 
 //services
-import { getUserDetail, deleteUser } from "../../services/users/users.service";
+import { getUserDetail} from "../../services/users/users.service";
 import ButtonCustom from "../../utils/buttonCustom/buttonCustom";
+import { deleteUser } from "../../redux/actions/sesion.actions";
 
 
 const UserDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
 
   const [userInfo, setUserInfo] = useState({first_name: "", last_name:"", email:""});
   const [modalVisible, setModalVisible] = useState("novisible");
@@ -45,7 +47,7 @@ const UserDetail = () => {
   };
 
   const deleteCurrentUser = async () => {
-    await deleteUser(id).then((res) => res);
+    dispatch(deleteUser(id))
   };
 
   const openModal = (status) => {
