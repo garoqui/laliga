@@ -9,6 +9,7 @@ import { closeSesion, createSesion } from "../../redux/actions/sesion.actions";
 
 //styles
 import "./login.scss";
+import { InputText } from "../../componentsStyled/inputText";
 
 //hooks
 import { useMessage } from "../../hooks/useMessage";
@@ -61,26 +62,28 @@ const Login = () => {
           <label htmlFor="email">Email</label>
         </div>
         <div>
-          <input
+          <InputText
             type="text"
             onChange={handleChange}
             value={user.email}
             name="email"
             id="email"
-          ></input>
+          ></InputText>
         </div>
 
         <div>
           <label htmlFor="password">Password</label>
         </div>
         <div>
-          <input
-            type="password"
-            onChange={handleChange}
-            value={user.password}
-            name="password"
-            id="password"
-          ></input>
+          <InputText
+          type="password"
+          onChange={handleChange}
+          value={user.password}
+          name="password"
+          id="password">
+          
+          </InputText>
+        
         </div>
 
         <div className="container-modalcustom-footer">
