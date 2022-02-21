@@ -10,10 +10,9 @@ import { useDispatch, useSelector } from "react-redux";
 import "./userDetail.scss";
 
 //services
-import { getUserDetail} from "../../services/users/users.service";
+import { getUserDetail } from "../../services/users/users.service";
 import ButtonCustom from "../../utils/buttonCustom/buttonCustom";
 import { deleteUser } from "../../redux/actions/sesion.actions";
-
 
 const UserDetail = () => {
   const { id } = useParams();
@@ -21,9 +20,14 @@ const UserDetail = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
-  const [userInfo, setUserInfo] = useState({first_name: "", last_name:"", email:""});
+  const [userInfo, setUserInfo] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+  });
   const [modalVisible, setModalVisible] = useState("novisible");
-  const [toastrVisible, setToastrVisible] = useState("novisible")
+  const [toastrVisible, setToastrVisible] = useState("novisible");
+  const [toastrMessage, setToastrMessage] = useState("");
 
   useEffect(() => {
     const resu = async () => {
@@ -47,14 +51,16 @@ const UserDetail = () => {
   };
 
   const deleteCurrentUser = async () => {
-    dispatch(deleteUser(id))
+    dispatch(deleteUser(id));
+    openToastr("visible", "Usuario Eliminado");
   };
 
   const openModal = (status) => {
     setModalVisible(status);
   };
 
-  const openToastr = (status) => {
+  const openToastr = (status, message) => {
+    setToastrMessage(message);
     setToastrVisible(status);
   };
 
@@ -70,13 +76,25 @@ const UserDetail = () => {
 
           <div className="container-user-detail-image-controls">
             <div onClick={() => goToUsers()}>
-              <ButtonCustom buttonText="Back" name="back" color="green"></ButtonCustom>
+              <ButtonCustom
+                buttonText="Back"
+                name="back"
+                color="green"
+              ></ButtonCustom>
             </div>
             <div onClick={() => openModal("visible")}>
-              <ButtonCustom buttonText="Edit" color="orange" name="edit"></ButtonCustom>
+              <ButtonCustom
+                buttonText="Edit"
+                color="orange"
+                name="edit"
+              ></ButtonCustom>
             </div>
             <div onClick={() => deleteCurrentUser()}>
-              <ButtonCustom buttonText="Delete" color="red" name="delete"></ButtonCustom>
+              <ButtonCustom
+                buttonText="Delete"
+                color="red"
+                name="delete"
+              ></ButtonCustom>
             </div>
           </div>
         </div>
@@ -89,7 +107,12 @@ const UserDetail = () => {
         openToastr={openToastr}
       ></ModalCustom>
 
-<Toastr type="success" text="User Edited!" title="Success" display={toastrVisible}></Toastr>
+      <Toastr
+        type="success"
+        text={toastrMessage}
+        title="Success"
+        display={toastrVisible}
+      ></Toastr>
     </div>
   );
 };

@@ -7,7 +7,6 @@ import "./modalCustom.scss";
 
 //services
 import { isEmpty } from "../../services/validations/form.validations";
-//import { editUser } from "../../services/users/users.service";
 import { editUser } from "../../redux/actions/sesion.actions";
 
 const ModalCustom = ({ title, data, display, openModal, openToastr }) => {
@@ -51,7 +50,7 @@ const ModalCustom = ({ title, data, display, openModal, openToastr }) => {
     dispatch(editUser(user));
     setErrores({});
     if (state.editUser) {
-      openToastr("visible");
+      openToastr("visible", "Usuario Editado");
       openModal("novisible");
     }
   };
